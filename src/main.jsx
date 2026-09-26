@@ -39,10 +39,10 @@ function dataUrlBytes(value) {
 
 async function renderPdf(file) {
   const bytes = new Uint8Array(await file.arrayBuffer())
-  const document = await pdfjsLib.getDocument({ data: bytes }).promise
+  const pdfDocument = await pdfjsLib.getDocument({ data: bytes }).promise
   const pages = []
-  for (let pageNumber = 1; pageNumber <= document.numPages; pageNumber += 1) {
-    const page = await document.getPage(pageNumber)
+  for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber += 1) {
+    const page = await pdfDocument.getPage(pageNumber)
     const viewport = page.getViewport({ scale: 1.5 })
     const text = await page.getTextContent()
     const textItems = text.items.filter((item) => item.str?.trim()).map((item, itemIndex) => {
