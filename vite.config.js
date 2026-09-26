@@ -1,1 +1,7 @@
-import { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\n\nexport default defineConfig({\n  base: '/paperly-pdf-studio/',\n  plugins: [react()],\n})\n
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  base: '/paperly-pdf-studio/',
+  plugins: [react()],
+})
